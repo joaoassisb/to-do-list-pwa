@@ -1,5 +1,3 @@
-navigator.serviceWorker.register("./sw.js");
-
 function RedirectIfUserExists() {
   const user = localStorage.getItem("user");
 
@@ -36,7 +34,7 @@ function UserName() {
 
 function ToggleStatus(index) {
   const tarefas = JSON.parse(localStorage.getItem("tarefas"));
-  const newTarefas = tarefas.map(function(tarefa, i) {
+  const newTarefas = tarefas.map(function (tarefa, i) {
     if (i === index) {
       tarefa.checked = !tarefa.checked;
     }
@@ -61,12 +59,12 @@ function LoadTask() {
                   <label>
                       <input type="checkbox" onchange="ToggleStatus(${i})" ${
         tarefas[i].checked ? "checked" : ""
-      } />
+        } />
                       <span ${
-                        tarefas[i].checked
-                          ? 'style="text-decoration: line-through;"'
-                          : ""
-                      }>${tarefas[i].label}</span>
+        tarefas[i].checked
+          ? 'style="text-decoration: line-through;"'
+          : ""
+        }>${tarefas[i].label}</span>
                       
                   </label>
                   <i class="small material-icons right red-text" onclick="DeleteTask(${i})">delete</i>

@@ -1,4 +1,5 @@
-self.addEventListener("install", function() {
+
+self.addEventListener("install", function () {
   console.log("SW instalado");
   caches.open("pwa-v1.1").then(cache => {
     cache.addAll([
@@ -12,6 +13,6 @@ self.addEventListener("install", function() {
   });
 });
 
-self.addEventListener("activate", function() {
+self.addEventListener("activate", function () {
   console.log("SW ativado");
 });

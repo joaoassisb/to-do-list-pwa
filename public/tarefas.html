@@ -1,123 +1,60 @@
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>To do list PWA</title>
 
-    <link rel="stylesheet" href="./estilos/estilos.css" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>To do list PWA</title>
 
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-    />
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
+  <link rel="stylesheet" href="./estilos/estilos.css" />
 
-    <link
-      rel="apple-touch-icon"
-      sizes="57x57"
-      href="/imagens/apple-icon-57x57.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="60x60"
-      href="/imagens/apple-icon-60x60.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="72x72"
-      href="/imagens/apple-icon-72x72.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="76x76"
-      href="/imagens/apple-icon-76x76.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="114x114"
-      href="/imagens/apple-icon-114x114.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="120x120"
-      href="/imagens/apple-icon-120x120.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="144x144"
-      href="/imagens/apple-icon-144x144.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="152x152"
-      href="/imagens/apple-icon-152x152.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="/imagens/apple-icon-180x180.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="192x192"
-      href="/imagens/android-icon-192x192.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="./imagens/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="96x96"
-      href="/imagens/favicon-96x96.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="./imagens/favicon-16x16.png"
-    />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 
-    <link rel="manifest" href="/manifest.json" />
+  <link rel="apple-touch-icon" sizes="57x57" href="/imagens/apple-icon-57x57.png" />
+  <link rel="apple-touch-icon" sizes="60x60" href="/imagens/apple-icon-60x60.png" />
+  <link rel="apple-touch-icon" sizes="72x72" href="/imagens/apple-icon-72x72.png" />
+  <link rel="apple-touch-icon" sizes="76x76" href="/imagens/apple-icon-76x76.png" />
+  <link rel="apple-touch-icon" sizes="114x114" href="/imagens/apple-icon-114x114.png" />
+  <link rel="apple-touch-icon" sizes="120x120" href="/imagens/apple-icon-120x120.png" />
+  <link rel="apple-touch-icon" sizes="144x144" href="/imagens/apple-icon-144x144.png" />
+  <link rel="apple-touch-icon" sizes="152x152" href="/imagens/apple-icon-152x152.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/imagens/apple-icon-180x180.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/imagens/android-icon-192x192.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="./imagens/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="96x96" href="/imagens/favicon-96x96.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="./imagens/favicon-16x16.png" />
 
-    <meta name="msapplication-TileColor" content="#f5f5f5" />
-    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
-    <meta name="theme-color" content="#f5f5f5" />
+  <link rel="manifest" href="/manifest.json" />
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
-    <script src="./app.js"></script>
-    <script>
-      $(document).ready(function() {
-        LoadTask();
-        UserName();
-      });
-    </script>
-  </head>
+  <meta name="msapplication-TileColor" content="#f5f5f5" />
+  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
+  <meta name="theme-color" content="#f5f5f5" />
 
-  <body>
-    <div class="container">
-      <h4>
-        Olá, <span id="UserName"></span>!
-        <button
-          class="btn-medium btn-floating waves-effect teal right"
-          onclick="AddTask()"
-        >
-          <i class="material-icons">add</i>
-        </button>
-      </h4>
-      <div class="row">
-        O que vamos fazer hoje?
-      </div>
-      <ul class="collection with-header"></ul>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
+  <script src="./app.js"></script>
+  <script>
+    $(document).ready(function () {
+      LoadTask();
+      UserName();
+    });
+  </script>
+</head>
+
+<body>
+  <div class="container">
+    <h4>
+      Olá, <span id="UserName"></span>!
+      <button class="btn-medium btn-floating waves-effect teal right" onclick="AddTask()">
+        <i class="material-icons">add</i>
+      </button>
+    </h4>
+    <div class="row">
+      O que vamos fazer hoje?
     </div>
-  </body>
+    <ul class="collection with-header"></ul>
+  </div>
+</body>
+
 </html>
