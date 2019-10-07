@@ -1,245 +1,112 @@
-
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>To do list PWA</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>To do list PWA</title>
 
-  <link rel="stylesheet" href="./estilos/estilos.css" />
+    <link rel="stylesheet" href="./estilos/estilos.css" />
 
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-  />
-  <link
-    href="https://fonts.googleapis.com/icon?family=Material+Icons"
-    rel="stylesheet"
-  />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
 
-  <link
-    rel="apple-touch-icon"
-    sizes="57x57"
-    href="/imagens/apple-icon-57x57.png"
-  />
-  <link
-    rel="apple-touch-icon"
-    sizes="60x60"
-    href="/imagens/apple-icon-60x60.png"
-  />
-  <link
-    rel="apple-touch-icon"
-    sizes="72x72"
-    href="/imagens/apple-icon-72x72.png"
-  />
-  <link
-    rel="apple-touch-icon"
-    sizes="76x76"
-    href="/imagens/apple-icon-76x76.png"
-  />
-  <link
-    rel="apple-touch-icon"
-    sizes="114x114"
-    href="/imagens/apple-icon-114x114.png"
-  />
-  <link
-    rel="apple-touch-icon"
-    sizes="120x120"
-    href="/imagens/apple-icon-120x120.png"
-  />
-  <link
-    rel="apple-touch-icon"
-    sizes="144x144"
-    href="/imagens/apple-icon-144x144.png"
-  />
-  <link
-    rel="apple-touch-icon"
-    sizes="152x152"
-    href="/imagens/apple-icon-152x152.png"
-  />
-  <link
-    rel="apple-touch-icon"
-    sizes="180x180"
-    href="/imagens/apple-icon-180x180.png"
-  />
-  <link
-    rel="icon"
-    type="image/png"
-    sizes="192x192"
-    href="/imagens/android-icon-192x192.png"
-  />
-  <link
-    rel="icon"
-    type="image/png"
-    sizes="32x32"
-    href="./imagens/favicon-32x32.png"
-  />
-  <link
-    rel="icon"
-    type="image/png"
-    sizes="96x96"
-    href="/imagens/favicon-96x96.png"
-  />
-  <link
-    rel="icon"
-    type="image/png"
-    sizes="16x16"
-    href="./imagens/favicon-16x16.png"
-  />
+    <link
+      rel="apple-touch-icon"
+      sizes="57x57"
+      href="/imagens/apple-icon-57x57.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="60x60"
+      href="/imagens/apple-icon-60x60.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="72x72"
+      href="/imagens/apple-icon-72x72.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="/imagens/apple-icon-76x76.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="/imagens/apple-icon-114x114.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="/imagens/apple-icon-120x120.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="/imagens/apple-icon-144x144.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="/imagens/apple-icon-152x152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/imagens/apple-icon-180x180.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="/imagens/android-icon-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./imagens/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="/imagens/favicon-96x96.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./imagens/favicon-16x16.png"
+    />
 
-  <link rel="manifest" href="/manifest.json" />
+    <link rel="manifest" href="/manifest.json" />
 
-  <meta name="msapplication-TileColor" content="#f5f5f5" />
-  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
-  <meta name="theme-color" content="#f5f5f5" />
+    <meta name="msapplication-TileColor" content="#f5f5f5" />
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
+    <meta name="theme-color" content="#f5f5f5" />
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <script src="https://code.jquery.com/jquery-1.11.3.js"></script>  
-  <body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
+    <script src="./app.js"></script>
     <script>
       $(document).ready(function() {
         LoadTask();
         UserName();
       });
-
-      function UserName(){
-          
-        const usuario = localStorage.getItem("user");
-       
-        if(!usuario){
-            window.location.href="./index.html";
-        }else{
-            $("#UserName").html(usuario);
-        }
-       
-      }
-
-      function ToggleStatus(index) {
-        const tarefas = JSON.parse(localStorage.getItem("tarefas"));
-        const newTarefas = tarefas.map(function(tarefa, i) {
-          if (i === index) {
-            tarefa.checked = !tarefa.checked;
-          }
-          return tarefa;
-        });
-
-        localStorage.setItem("tarefas", JSON.stringify(newTarefas));
-
-        LoadTask();
-      }
-      function LoadTask() {
-        $(".collection").empty();
-        $("#message").remove();
-        const tarefas = JSON.parse(localStorage.getItem("tarefas")) || [];
-        if(tarefas.length ==0){
-          $(".container").append('<i id="message">Nenhuma tarefa criada</i>');
-        }
-        
-        else{
-          for(i = 0;i< tarefas.length; i++){
-              $(".collection").append(`
-                  <li class="collection-item">
-                      <label>
-                          <input type="checkbox" onchange="ToggleStatus(${i})" ${tarefas[i].checked? "checked" : ""} />
-                          <span ${tarefas[i].checked? "style=\"text-decoration: line-through;\"" : ""}>${tarefas[i].label}</span>
-                          
-                      </label>
-                      <i class="small material-icons right red-text" onclick="DeleteTask(${i})">delete</i>
-                  </li>`
-              )
-          }
-        }
-      }
-
-      function AddTaskDefault() {
-        $(".collection").append(`
-            <li class="collection-item new-item">
-                    <div class="row" style="margin:0;padding:0">
-                        <div class="col s10"  style="margin:0;padding:0">
-                            <div class="input-field" style="margin:0;padding:0">
-                                <input type="text" placeholder ="Nova tarefa">
-                                
-                            </div>
-                        </div>
-                        <div class="col s2">
-                        <br/>
-                            <i class="small material-icons teal-text " onclick="SaveTask(this)">save</i>
-                        </div>
-                    </div>
-            </li>`)
-    }
-    function AddTask()
-    {
-
-        if($(".new-item").length >=1){
-            $("input[type=text]").focus();
-            return false;
-        }else{
-            AddTaskDefault();
-        }
-       
-    }
-
-    function SearchTask(task){
-      const tarefas = JSON.parse(localStorage.getItem("tarefas")) || [];
-
-      for(i = 0 ; i < tarefas.length; i++){
-
-        if(tarefas[i].label == task){
-          return true;
-        }
-
-      }
-      return false;
-    }
-    function SaveTask(ref){
-
-       $("#message").remove();
-
-
-       const tarefas = JSON.parse(localStorage.getItem("tarefas")) || [];
-       
-        $task = $(ref).parent().parent().find("input").val();
-       
-       
-        if($task ==""){
-          $(".container").append('<i id="message" class="red-text">Informe o nome da tarefa</i>');
-         
-          $(ref).parent().parent().find("input").focus();
-          return false;
-        }else if(SearchTask($task) == true){
-
-        $("input[type=text]").select();
-         $("input[type=text]").focus();
-         $(".container").append('<i id="message" class="red-text">Tarefa já adicionada a lista!</i>');
-        }
-        else{
-       
-
-          tarefas.push({
-              label:$task,
-              checked:false
-          });
-          localStorage.setItem("tarefas",JSON.stringify(tarefas));
-
-          LoadTask();
-        }
-    }
-
-      function DeleteTask(index) {
-        const tarefas = JSON.parse(localStorage.getItem("tarefas"));
-
-        tarefas.splice(index, 1);
-
-        localStorage.setItem("tarefas", JSON.stringify(tarefas));
-
-        LoadTask();
-      }
     </script>
+  </head>
 
+  <body>
     <div class="container">
       <h4>
-        Olá, <span id ="UserName"></span>!
+        Olá, <span id="UserName"></span>!
         <button
           class="btn-medium btn-floating waves-effect teal  right"
           onclick="AddTask()"
@@ -249,18 +116,8 @@
       </h4>
       <div class="row">
         O que vamos fazer hoje?
+      </div>
+      <ul class="collection with-header"></ul>
     </div>
-    <ul class="collection with-header">
-      
-       
-    </ul>
-</div>
-<style>
-.m-0{
-    margin:0!important;
-    
-}
-
-    </style>
   </body>
 </html>
