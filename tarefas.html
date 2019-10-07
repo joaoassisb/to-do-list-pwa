@@ -1,18 +1,100 @@
+
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>To do list PWA</title>
 
-    <!-- Bootstrap CSS -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="./estilos/estilos.css" />
 
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-               <title>To do List PWA!</title>
-  </head>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+  />
+  <link
+    href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet"
+  />
+
+  <link
+    rel="apple-touch-icon"
+    sizes="57x57"
+    href="/imagens/apple-icon-57x57.png"
+  />
+  <link
+    rel="apple-touch-icon"
+    sizes="60x60"
+    href="/imagens/apple-icon-60x60.png"
+  />
+  <link
+    rel="apple-touch-icon"
+    sizes="72x72"
+    href="/imagens/apple-icon-72x72.png"
+  />
+  <link
+    rel="apple-touch-icon"
+    sizes="76x76"
+    href="/imagens/apple-icon-76x76.png"
+  />
+  <link
+    rel="apple-touch-icon"
+    sizes="114x114"
+    href="/imagens/apple-icon-114x114.png"
+  />
+  <link
+    rel="apple-touch-icon"
+    sizes="120x120"
+    href="/imagens/apple-icon-120x120.png"
+  />
+  <link
+    rel="apple-touch-icon"
+    sizes="144x144"
+    href="/imagens/apple-icon-144x144.png"
+  />
+  <link
+    rel="apple-touch-icon"
+    sizes="152x152"
+    href="/imagens/apple-icon-152x152.png"
+  />
+  <link
+    rel="apple-touch-icon"
+    sizes="180x180"
+    href="/imagens/apple-icon-180x180.png"
+  />
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="192x192"
+    href="/imagens/android-icon-192x192.png"
+  />
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="32x32"
+    href="./imagens/favicon-32x32.png"
+  />
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="96x96"
+    href="/imagens/favicon-96x96.png"
+  />
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="16x16"
+    href="./imagens/favicon-16x16.png"
+  />
+
+  <link rel="manifest" href="/manifest.json" />
+
+  <meta name="msapplication-TileColor" content="#f5f5f5" />
+  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
+  <meta name="theme-color" content="#f5f5f5" />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="https://code.jquery.com/jquery-1.11.3.js"></script>  
   <body>
 
 <script>
@@ -37,19 +119,25 @@
     function LoadTask(){
 
         $(".collection").empty();
+        $("#message").remove();
         const tarefas = JSON.parse(localStorage.getItem("tarefas")) || [];
+        if(tarefas.length ==0){
+          $(".container").append('<i id="message">Nenhuma tarefa criada</i>');
+        }
         
-        for(i = 0;i< tarefas.length; i++){
-            $(".collection").append(`
-                <li class="collection-item">
-                    <label>
-                        <input type="checkbox" onchange="ToggleStatus(${i})" ${tarefas[i].checked? "checked" : ""} />
-                        <span ${tarefas[i].checked? "style=\"text-decoration: line-through;\"" : ""}>${tarefas[i].label}</span>
-                        
-                    </label>
-                    <i class="small material-icons right red-text" onclick="DeleteTask(${i})">delete</i>
-                </li>`
-            )
+        else{
+          for(i = 0;i< tarefas.length; i++){
+              $(".collection").append(`
+                  <li class="collection-item">
+                      <label>
+                          <input type="checkbox" onchange="ToggleStatus(${i})" ${tarefas[i].checked? "checked" : ""} />
+                          <span ${tarefas[i].checked? "style=\"text-decoration: line-through;\"" : ""}>${tarefas[i].label}</span>
+                          
+                      </label>
+                      <i class="small material-icons right red-text" onclick="DeleteTask(${i})">delete</i>
+                  </li>`
+              )
+          }
         }
     }
 
@@ -74,26 +162,58 @@
     {
 
         if($(".new-item").length >=1){
+            $("input[type=text]").focus();
             return false;
         }else{
             AddTaskDefault();
         }
        
     }
+
+    function SearchTask(task){
+      const tarefas = JSON.parse(localStorage.getItem("tarefas")) || [];
+
+      for(i = 0 ; i < tarefas.length; i++){
+
+        if(tarefas[i].label == task){
+          return true;
+        }
+
+      }
+      return false;
+    }
     function SaveTask(ref){
 
-        
+       $("#message").remove();
+
+
+       const tarefas = JSON.parse(localStorage.getItem("tarefas")) || [];
+       
         $task = $(ref).parent().parent().find("input").val();
-        
-        const tarefas = JSON.parse(localStorage.getItem("tarefas")) || [];
+       
+       
+        if($task ==""){
+          $(".container").append('<i id="message" class="red-text">Informe o nome da tarefa</i>');
+         
+          $(ref).parent().parent().find("input").focus();
+          return false;
+        }else if(SearchTask($task) == true){
 
-        tarefas.push({
-            label:$task,
-            checked:false
-        });
-        localStorage.setItem("tarefas",JSON.stringify(tarefas));
+        $("input[type=text]").select();
+         $("input[type=text]").focus();
+         $(".container").append('<i id="message" class="red-text">Tarefa já adicionada a lista!</i>');
+        }
+        else{
+       
 
-        LoadTask();
+          tarefas.push({
+              label:$task,
+              checked:false
+          });
+          localStorage.setItem("tarefas",JSON.stringify(tarefas));
+
+          LoadTask();
+        }
     }
 
     function DeleteTask(index)
@@ -115,15 +235,7 @@
         O que vamos fazer hoje?
     </div>
     <ul class="collection with-header">
-       <li class="collection-item">
-            <label>
-                <input type="checkbox" />
-                <span>Dominar o mundo</span>
-                
-            </label>
-            <i class="small material-icons right red-text" onclick="DeleteTask(this)">delete</i>
-        </li>
-        
+      
        
     </ul>
 </div>
