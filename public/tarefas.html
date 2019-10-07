@@ -35,6 +35,8 @@
   <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
   <script src="./app.js"></script>
   <script>
+    navigator.serviceWorker.register("./sw.js");
+
     $(document).ready(function () {
       LoadTask();
       UserName();
