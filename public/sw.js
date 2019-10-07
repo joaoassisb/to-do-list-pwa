@@ -5,6 +5,7 @@ self.addEventListener("install", function() {
       "/",
       "/index.html",
       "/tarefas.html",
+      "/app.js",
       "/estilos/estilos.css",
       "/favicon.ico"
     ]);
