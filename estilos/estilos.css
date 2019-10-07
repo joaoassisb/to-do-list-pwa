@@ -10,4 +10,9 @@ main {
 
 body {
   background: #fff;
+  height: 100vh;
+}
+
+.container {
+  height: 100vh;
 }
