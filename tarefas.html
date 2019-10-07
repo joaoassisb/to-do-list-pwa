@@ -1,6 +1,5 @@
 
 <html lang="en">
-<<<<<<< Updated upstream
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -96,36 +95,24 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="https://code.jquery.com/jquery-1.11.3.js"></script>  
-=======
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-
-    <!-- Bootstrap CSS -->
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-    />
-
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <title>To do List PWA!</title>
-  </head>
->>>>>>> Stashed changes
   <body>
     <script>
       $(document).ready(function() {
         LoadTask();
+        UserName();
       });
+
+      function UserName(){
+          
+        const usuario = localStorage.getItem("user");
+       
+        if(!usuario){
+            window.location.href="./index.html";
+        }else{
+            $("#UserName").html(usuario);
+        }
+       
+      }
 
       function ToggleStatus(index) {
         const tarefas = JSON.parse(localStorage.getItem("tarefas"));
@@ -144,7 +131,6 @@
         $(".collection").empty();
         $("#message").remove();
         const tarefas = JSON.parse(localStorage.getItem("tarefas")) || [];
-<<<<<<< Updated upstream
         if(tarefas.length ==0){
           $(".container").append('<i id="message">Nenhuma tarefa criada</i>');
         }
@@ -162,25 +148,6 @@
                   </li>`
               )
           }
-=======
-
-        for (i = 0; i < tarefas.length; i++) {
-          $(".collection").append(`
-                <li class="collection-item">
-                    <label>
-                        <input type="checkbox" onchange="ToggleStatus(${i})" ${
-            tarefas[i].checked ? "checked" : ""
-          } />
-                        <span ${
-                          tarefas[i].checked
-                            ? 'style="text-decoration: line-through;"'
-                            : ""
-                        }>${tarefas[i].label}</span>
-                        
-                    </label>
-                    <i class="small material-icons right red-text" onclick="DeleteTask(${i})">delete</i>
-                </li>`);
->>>>>>> Stashed changes
         }
       }
 
@@ -199,7 +166,6 @@
                             <i class="small material-icons teal-text " onclick="SaveTask(this)">save</i>
                         </div>
                     </div>
-<<<<<<< Updated upstream
             </li>`)
     }
     function AddTask()
@@ -259,34 +225,6 @@
           LoadTask();
         }
     }
-=======
-            </li>`);
-      }
-      function AddTask() {
-        if ($(".new-item").length >= 1) {
-          return false;
-        } else {
-          AddTaskDefault();
-        }
-      }
-      function SaveTask(ref) {
-        $task = $(ref)
-          .parent()
-          .parent()
-          .find("input")
-          .val();
-
-        const tarefas = JSON.parse(localStorage.getItem("tarefas")) || [];
-
-        tarefas.push({
-          label: $task,
-          checked: false
-        });
-        localStorage.setItem("tarefas", JSON.stringify(tarefas));
-
-        LoadTask();
-      }
->>>>>>> Stashed changes
 
       function DeleteTask(index) {
         const tarefas = JSON.parse(localStorage.getItem("tarefas"));
@@ -301,7 +239,7 @@
 
     <div class="container">
       <h4>
-        Olá, usuário!
+        Olá, <span id ="UserName"></span>!
         <button
           class="btn-medium btn-floating waves-effect teal  right"
           onclick="AddTask()"
@@ -311,7 +249,6 @@
       </h4>
       <div class="row">
         O que vamos fazer hoje?
-<<<<<<< Updated upstream
     </div>
     <ul class="collection with-header">
       
@@ -324,27 +261,6 @@
     
 }
 
-=======
-      </div>
-      <ul class="collection with-header">
-        <li class="collection-item">
-          <label>
-            <input type="checkbox" />
-            <span>Dominar o mundo</span>
-          </label>
-          <i
-            class="small material-icons right red-text"
-            onclick="DeleteTask(this)"
-            >delete</i
-          >
-        </li>
-      </ul>
-    </div>
-    <style>
-      .m-0 {
-        margin: 0 !important;
-      }
->>>>>>> Stashed changes
     </style>
   </body>
 </html>
