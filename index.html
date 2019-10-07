@@ -99,8 +99,16 @@
       navigator.serviceWorker.register("sw.js");
 
       $(document).ready(function() {
-        LoadTask();
+        RedirectIfUserExists();
       });
+
+      function RedirectIfUserExists() {
+        const user = localStorage.getItem("user");
+
+        if (user) {
+          window.location = "./tarefas.html";
+        }
+      }
 
       function addUserName() {
         const user = $("#nome").val();
@@ -111,10 +119,11 @@
 
         localStorage.setItem("user", user);
 
-        window.location = "/tarefas.html";
+        window.location = "./tarefas.html";
       }
     </script>
   </head>
+
   <body>
     <div class="container valign-wrapper">
       <div>
